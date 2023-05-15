@@ -1,0 +1,1 @@
+clang++ --target=wasm32-wasi -msimd128 -fno-exceptions -O3 -Wl,--getPixelDataOffset -Wl,--export=setCanvasSize -Wl,--export=setSize -Wl,--export=setWall -Wl,--export=setStart -Wl,--export=setEnd -Wl,--export=findPath -Wl,--no-entry -stdlib=libc++ -fexperimental-library -std=c++2b -o astar.wasm astar.cpp

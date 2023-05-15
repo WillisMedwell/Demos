@@ -1,0 +1,1 @@
+clang++ --target=wasm32-wasi -msimd128 -fno-exceptions -O3 -Wl,--export=sum -stdlib=libc++ -fexperimental-library -std=c++2b -o hello.wasm hello.cpp

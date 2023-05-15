@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Willis' Demos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" type="text/css" href="styles/demos.css">
+    <script src="scripts/demos.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <aside>
+        <nav>
+            <a href="#Top">Demos</a>
+            <a href="#Contact">Contact</a>
+            <a href="https://www.linkedin.com/in/wmedwell/" target="_blank" rel="noopener">&#x2197 LinkedIn </a>
+            <a href="https://github.com/WillisMedwell" target="_blank" rel="noopener">&#x2197 GitHub </a>
+            <a href="resources/resume.pdf" download>&#x2198; Resume</a>
+        </nav>
+
+    </aside>
+
+    <article>
+        <section id="Top">
+            <h1>Willis' Demos</h1>
+            <p>    
+                This is a collection of all the projects I've ported to the web. <br><br>
+                Using the <a href="https://github.com/WebAssembly/wasi-sdk">Wasi-SDK</a> 
+                toolchain, modern C++ can be compiled to <a href="https://github.com/WebAssembly">WebAssembly (WASM)</a> 
+                overcoming the typical portability challenges C++ has.
+            </p>
+        </section>
+
+        <section>
+            <h2>Ray Tracer</h2>
+            <canvas id="RTCanvas" width="600" height="300">
+            </canvas>
+            <div class="inline-parent">
+                <button id="rt_intersection">Intersection</button>
+                <button id="rt_depth">Depth</button>
+                <button id="rt_basic">Basic</button>
+            </div>
+            <div class="inline-parent">
+                <input type="range" min="45" max="120" value="90" id="rt_fov">
+            </div>
+            <p>
+                Written in C, the purpose of this was to dip my toes into "graphics programming" 
+                & to refresh myself with linear algebra in preparation for an upcoming unit in university.
+                <br><br>
+                TODO: lambert lighting, SIMD, diffuse, reflective, etc.
+            </p>
+        </section>
+
+        <section>
+            <h2>Astar Algorithm</h2>
+            <canvas id="ASCanvas">
+            </canvas>
+            <div class="inline-parent">
+                <button id="as_run">Run</button>
+            </div>
+            <p>
+                Written in C++, I recently completed an OOP class where i did a astar algo for a project; 
+                however, i was interested in how much more I could improve performance. 
+                <br><br>
+                TODO: get ui working.
+            </p>
+        </section>
+
+        <section>
+            <h2>Worley Noise</h2>
+            <canvas id="WNCanvas" width="600" height="300">
+            </canvas>
+            <div class="inline-parent">
+                <button id="wn_run">Run</button>
+                <input type="number" id="wn_input" name="wn_input" value = "60">
+                <input type="number" id="wn_range" name="wn_range" value = "60">
+            </div>
+            <p>
+                Worley noise generator
+                <br><br>
+                TODO: quadtree to avoid n&sup2; comparisons.
+            </p>
+        </section>
+
+        <div id="fade"></div>
+        <footer id="Contact">
+            <a href="mailto:willismedwell@gmail.com" target="_blank" rel="noopener" class="footer_link">Contact</a>
+        </footer>
+    </article>
+</body>
+
+</html>
