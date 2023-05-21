@@ -1,1 +1,0 @@
-clang++ --target=wasm32-wasi -msimd128 -fno-exceptions -O3 -z stack-size=2000000 -Wl,--export=canvas -Wl,--export=generate -Wl,--export=getCanvas -Wl,--no-entry -stdlib=libc++ -fexperimental-library -std=c++2b -o worleynoise.wasm worleynoise.cpp
