@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Willis Medwell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="resources/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/index.js" defer></script>
+</head>
+
+<body width=100%>
+    <script>
+        function updateValue(val, id, decorator = "") {
+            document.getElementById(id).textContent = val + decorator;
+        }
+    </script>
+    <nav>
+        <a href="https://www.linkedin.com/in/wmedwell/" target="_blank" rel="noopener"><img
+                src="resources/icons/person.svg" alt="Contact" class="NavIcon"></a>
+        <a href="https://github.com/WillisMedwell" target="_blank" rel="noopener"><img src="resources/icons/code.svg"
+                alt="Github" class="NavIcon"></a>
+        <a href="resources/misc/resume.pdf" target="_blank" rel="noopener" download>
+            <img src="resources/icons/download.svg" alt="Resume" class="NavIcon"></a>
+    </nav>
+    <article>
+        <div class="column">
+            <section id="Home">
+                <h1 class="BigFont">WILLIS MEDWELL</h1>
+                <div class="HorizontalParent">
+                    <h2 class="Accent">Electrical Engineer</h2>
+                    <h2 class="Accent">Computer Scientist</h2>
+                </div>
+                <p>
+                    I'm a Software <u>Engineer</u> aspiring to turn my passion into a career. <br><br>
+                    Focused on <strong>performance</strong>, <strong>portability</strong> and <strong>teamwork.</strong>
+                </p>
+                <div class="HorizontalParent ToBottom">
+                    <div class="ButtonShell" onclick="window.open('https://www.linkedin.com/in/wmedwell/', '_blank')">
+                        <div class="ButtonContainer">
+                            <h1>Connect</h1>
+                            <img src="resources/icons/arrow.svg" alt="Arrow" />
+                        </div>
+                    </div>
+                    <div class="ButtonShell" onclick="window.open('resources/misc/resume.pdf', '_blank')">
+                        <div class="ButtonContainer">
+                            <h1>Resume</h1>
+                            <img src="resources/icons/arrow.svg" alt="Arrow" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--
+                <section id="Noise">
+                    <h1 class="BigFont">WORLEY NOISE</h1>
+                    <div class="HorizontalParent">
+                    <h2 class="Accent">C++</h2>
+                    <h2 class="Accent">SIMD</h2>
+                    <h2 class="Accent">Quad Tree</h2>
+                </div>
+                <p>
+                    A 2D texture generator using the Worley Noise technique.
+                    <br><br>Can hanlde up to 10'000 particles in browser.
+                    <br><br>Optimized with QuadTree and SIMD
+                </p>
+                <div class="CanvasWrapper">
+                    <canvas width="200" height="150" id="noise_canvas"></canvas>
+                </div>
+
+                <div class="flex-container">
+                    <label for="noise_count">Num</label>
+                    <input type="range" min="5" max="10000" step="1" value="200" id="noise_count"
+                        onchange="updateValue(this.value, 'noise_count_value')"
+                        oninput="updateValue(this.value, 'noise_count_value')" />
+                    <span id="noise_count_value">200</span>
+                </div>
+                <div class="flex-container">
+                    <label for="noise_range">Radii</label>
+                    <input type="range" min="1" max="100" step="1" value="50" id="noise_range"
+                        onchange="updateValue(this.value, 'noise_range_value')"
+                        oninput="updateValue(this.value, 'noise_range_value')" />
+                    <span id="noise_range_value">50</span>
+                </div>
+
+            </section>
+            -->
+
+        </div>
+        <div class="column">
+            <section id="RayTracer">
+                <h1 class="BigFont">RAY TRACER</h1>
+                <div class="HorizontalParent">
+                    <h2 class="Accent">C++</h2>
+                    <h2 class="Accent">WebAssembly</h2>
+                    <h2 class="Accent">Computer Graphics</h2>
+                </div>
+                <p>
+                    A renderer which <u>simulates</u> the behaviour of light by tracing
+                    the path of light rays to generate realistic images.
+                </p>
+                <div class="toggle-switch-container">
+                    <label class="toggle-switch">
+                        <input class="toggleSwitch" type="checkbox" id="gyro_enable">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="toggleSwitch" id="gyro_label">Enable Gyro for <u>Mobile</u> devices.</label>
+                </div>
+                <br>
+                <div class="CanvasWrapper">
+                    <canvas width="600" height=400" id="raytracer_canvas"></canvas>
+                </div>
+                <div class="flex-container">
+                    <label for="raytracer_yaw">Yaw</label>
+                    <input type="range" value="0" min="-180" max="180" step="1" id="raytracer_yaw"
+                        onchange="updateValue(this.value, 'raytracer_yaw_value', '&deg')"
+                        oninput="updateValue(this.value, 'raytracer_yaw_value', '&deg')" />
+                    <span id="raytracer_yaw_value">0&deg</span>
+                </div>
+                <div class="flex-container">
+                    <label for="raytracer_pitch">Pitch</label>
+                    <input type="range" value="0" min="-180" max="180" step="1" id="raytracer_pitch"
+                        onchange="updateValue(this.value, 'raytracer_pitch_value', '&deg')"
+                        oninput="updateValue(this.value, 'raytracer_pitch_value', '&deg')" />
+                    <span id="raytracer_pitch_value">0&deg</span>
+                </div>
+                <div class="flex-container">
+                    <label for="raytracer_fov">FOV</label>
+                    <input type="range" value="65" min="10" max="120" step="1" id="raytracer_fov"
+                        onchange="updateValue(this.value, 'raytracer_fov_value', '&deg')"
+                        oninput="updateValue(this.value, 'raytracer_fov_value', '&deg')" />
+                    <span id="raytracer_fov_value">65&deg</span>
+                </div>
+
+                <div class="explore">
+                    <div class="ButtonShell Small RayTracer">
+                        <div class="ButtonContainer Small">
+                            <h1>Source Code</h1>
+                            <img src="resources/icons/arrow.svg" alt="Arrow" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--
+            <section id="Soft">
+                <h1 class="BigFont">SOFTBODY SIMULATION</h1>
+                <div class="HorizontalParent">
+                    <h2 class="Accent">C++</h2>
+                    <h2 class="Accent">SPRING-MASS SYSTEM</h2>
+                </div>
+                <p>Being Developed</p>
+                <div class="CanvasWrapper">
+                    <canvas width="600" height="300"></canvas>
+                </div>
+                <input type="range" min="0" max="100" step="1" />
+                <input type="range" min="0" max="100" step="1" />
+                <div class="ButtonShell Small RayTracer">
+                    <div class="ButtonContainer Small">
+                        <h1>Start</h1>
+                        <img src="resources/icons/arrow.svg" alt="Arrow" />
+                    </div>
+                </div>
+            </section>
+            -->
+        </div>
+    </article>
+    <footer>Site created without a framework. Just HTML, CSS, and Javascript. </footer>
+</body>
+
+</html>
