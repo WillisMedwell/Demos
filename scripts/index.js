@@ -2,12 +2,20 @@ var yaw = 0;   // x axis
 var pitch = 0; // y axis
 var roll = 0;  // z axis 
 
-//let noise_worker = new Worker('scripts/worker.js');
 let raytracer_worker = new Worker('scripts/worker.js');
 
 let has_gyro_support = true;
 
 window.onload = function (event) {
+    var child = document.querySelector('.Scale'); // Replace with your child class or ID
+    var parent = child.parentNode;
+    var scaleFactor = 0.8; // Replace with your scale factor
+
+    var childHeight = child.offsetHeight;
+    var newParentHeight = childHeight * scaleFactor;
+    parent.style.height = newParentHeight + 'px';
+
+
     // Request permission for gyro.
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
         DeviceMotionEvent.requestPermission()
@@ -48,21 +56,7 @@ window.onload = function (event) {
         },
         [raytracer_canvas_offscreen]
     );
-    // noise_worker.postMessage(
-    //     {
-    //         topic: "init",
-    //         wasm_file: "../wasm/worleynoise.wasm",
-    //         canvas: noise_canvas_offscreen,
-    //         args: [
-    //             100, 50
-    //         ]
-    //     },
-    //     [noise_canvas_offscreen]
-    // );
 
-    // createActionTrigger("noise_trigger", "click", postNoiseData);
-    // createActionTrigger("noise_range", "input", postNoiseData);
-    // createActionTrigger("noise_count", "input", postNoiseData);
 
     createActionTrigger("raytracer_fov", "input", postRaytracerData);
     createActionTrigger("raytracer_yaw", "input", postRaytracerData);
@@ -70,20 +64,6 @@ window.onload = function (event) {
 
     createActionTrigger("gyro_enable", "input", getGyroPermission);
 }
-
-
-// function postNoiseData() {
-//     noise_worker.postMessage(
-//         {
-//             topic: "render_play",
-//             args: [
-//                 Number(document.getElementById("noise_count").value),
-//                 Number(document.getElementById("noise_range").value)
-//             ]
-//         }
-//     );
-
-// }
 
 function postRaytracerData() {
     if (document.getElementById("gyro_enable").checked == false) {
@@ -141,7 +121,6 @@ function getGyroPermission() {
         window.removeEventListener('deviceorientation', handleOrientation, true);
     }
 }
-
 
 function createActionTrigger(id, type, action) {
     let document_trigger = document.getElementById(id);
