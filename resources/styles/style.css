@@ -677,4 +677,13 @@ section:hover .explore {
         transform: translateY(-100px);
         margin-bottom: -100px;
     }
+
+    .Scale {
+        transform: scale(1);
+    }
+
+    #Noise:hover {
+        transform: translateX(0);
+    }
 }
+
